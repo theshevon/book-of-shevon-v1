@@ -37,7 +37,7 @@ app.get("/", function(req, res){
 });
 
 // local deployment
-app.listen(4000, function(){
+app.listen(3000, function(){
     console.log("Successfully connected to server.");
 });
 

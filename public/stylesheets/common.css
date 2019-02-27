@@ -1,6 +1,6 @@
 body{
     color: white;
-    background: rgb(214, 27, 68);
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
     text-align: center;
 }
 
