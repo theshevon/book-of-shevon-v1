@@ -1,0 +1,19 @@
+body{
+    color: white;
+    text-align: center;
+}
+
+#banner{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1{
+    display: none;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 4rem;
+}
+
+

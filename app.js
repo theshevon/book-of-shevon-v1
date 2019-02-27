@@ -40,8 +40,3 @@ app.get("/", function(req, res){
 app.listen(3000, function(){
     console.log("Successfully connected to server.");
 });
-
-// production
-// app.listen(process.env.PORT, process.env.IP, function(){
-//   console.log("Successfully connected to server.");
-// });

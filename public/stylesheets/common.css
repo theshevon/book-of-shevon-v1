@@ -1,21 +1,3 @@
-body{
-    color: white;
-    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-    text-align: center;
-}
-
-h3, h4{
-    font-weight: 100;
-}
-
-h3{
-    font-size: 2rem;
-}
-
-h1{
-    font-family: 'Lobster', cursive;
-    font-size: 3.5rem;
-}
 
 #navLinks{
     align-items: center;
@@ -23,47 +5,43 @@ h1{
 
 
 #main-text{
-    margin: 15% auto;
-}
-
-#mainNavBar{
-background-color: rgb(177, 24, 57);
+    height: 100%;
 }
 
 #mainNavBar .nav-link{
-font-size: 1.0rem;
-font-weight: 100;
-color: white;
+    font-size: 1.0rem;
+    font-weight: 100;
+    color: white;
 }
 
 #mainNavBar .navbar-brand img{
-height: 30px;
-width: 30px;
+    height: 30px;
+    width: 30px;
 }
 
 #navLinks .navbar-nav{
-width: 100%;
+    width: 100%;
 }
 
 #navLinks .navbar-nav a{
-line-height: 0.5rem;
+    line-height: 0.5rem;
 }
 
 #mainNavBar .nav-link:hover{
-color: gray;
+    color: #202020;
 }
 
 #toggler{
-border: none;
+    border: none;
 }
 
 #toggler:hover .navbar-toggler-icon{
-color: white;
+    color: white;
 }
 
 #toggler:focus{
-border: 1px solid gray;
-outline: none;
+    border: 1px solid gray;
+    outline: none;
 }
 
 
