@@ -32,7 +32,7 @@ app.use(express.static(__dirname + "/public"));
 
 /*====================================routing==================================*/
 
-app.get("/", function(req, res){
+app.get("/*", function(req, res){
     res.render("home");
 });
 
