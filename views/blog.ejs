@@ -1,0 +1,48 @@
+<% include ./partials/header %>
+
+<title>umisc | blog</title>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/blog.css">
+
+<div id="content" class="container">
+    
+    <section id="blog-posts" class="py-5">
+    <% if (posts.length === 0 ){ %>
+        <h2 id="sorry-msg">Sorry, no Blog Posts have been published yet.</h2>
+    <% }else{ %>
+        <% posts.forEach(function(post){ %>
+            <div class="row justify-content-center mb-5">
+                <div class="blog-post col-8 py-4 d-flex flex-column align-items-center">
+                    <h3><%=post.title%></h3>
+                    <% if (post.content.indexOf("<figure>") !== -1 ){ %>
+                    <img src="<%= getImgSrc(post.content) %>" class="img-fluid" alt="">
+                    <% }else { %>
+                    <img src="./images/stub.png" class="img-fluid" alt="">
+                    <% } %>
+                    <div class="container mt-3">
+                        <p><%=post.contentSnippet%> <a href="<%=post.link%>" target="_blank">read more</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <% }); %>
+    <% } %>
+    </section>
+
+    <% 
+        function getImgSrc(str){                 
+            var index = str.indexOf("src") + 5; 
+            var imgSrc = "";                    
+            while (str[index] !== "\""){        
+                imgSrc += str[index];           
+                index ++;                       
+            }                                   
+            return imgSrc;                      
+        }                
+    %>
+</div>
+
+<div class="pb-5"></div>
+
+<% include ./partials/footer %>

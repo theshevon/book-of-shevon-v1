@@ -3,6 +3,14 @@ body{
     text-align: center;
 }
 
+#mainNavBar .nav-link{
+    color: white;
+}
+
+#mainNavBar .nav-link:hover{
+    color: #202020;
+}
+
 #banner{
     height: 100vh;
     display: flex;

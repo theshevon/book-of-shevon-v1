@@ -1,6 +1,7 @@
 /*=========================package/schema imports=============================*/
 
 var express               = require("express"),
+    feedReader            = require("feed-reader"),
     app                   = express();
 
 /*==================================app config================================*/
@@ -31,6 +32,21 @@ app.use(express.static(__dirname + "/public"));
 // app.use(methodOverride("_method"));
 
 /*====================================routing==================================*/
+
+
+app.get("/blog", function(req, res){
+
+    // rss url of blog
+    var feedURL = "https://medium.com/feed/@shevon_mendis";
+    
+    feedReader.parse(feedURL).then((feed) => {
+        res.render("blog", {posts: feed.entries});
+    }).catch((err) => {
+        console.log(err);
+        res.redirect("/home");
+    });
+
+});
 
 app.get("/*", function(req, res){
     res.render("home");
