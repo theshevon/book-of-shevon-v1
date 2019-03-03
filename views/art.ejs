@@ -1,0 +1,48 @@
+<% include ./partials/header %>
+
+<title>umisc | blog</title>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/art.css">
+
+<div id="content" class="container">
+
+    <section id="hand-drawn" class="pt-5 pb-3">
+        <h1>Pen & Paper</h1>
+        <hr class="pb-3">
+        <div class="row flex-wrap">
+            <% for (var i=0; i<6; i++){ %>
+            <div class="col-12 col-md-4 pb-4 d-flex align-items-center">
+                <img src="/art/hand_drawn/img_<%=i%>.JPG" class="img-fluid" alt="">
+            </div>
+            <% } %>
+        </div>  
+    </section>
+
+    <section id="digital" class="pt-5 pb-3">
+        <h1>Digital</h1>
+        <hr class="pb-3">
+        <div class="row flex-wrap">
+            <% for (var i=0; i<3; i++){ %>
+            <div class="col-12 col-md-4 pb-4 d-flex align-items-center">
+                <img src="/art/digital/dig_<%=i%>.JPG" class="img-fluid" alt="">
+            </div>
+            <% } %>
+        </div>  
+    </section>
+
+    <section id="models" class="pt-5 pb-3">
+        <h1>Models</h1>
+        <hr class="pb-3">
+        <div class="row flex-wrap">
+            <% for (var i=0; i<3; i++){ %>
+            <div class="col-12 col-md-4 pb-4 d-flex align-items-center">
+                <img src="/art/models/mod_<%=i%>.PNG" class="img-fluid" alt="">
+            </div>
+            <% } %>
+        </div>  
+    </section>
+
+</div>
+
+<% include ./partials/footer %>

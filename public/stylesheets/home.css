@@ -4,16 +4,23 @@ body{
     text-align: center;
 }
 
-/* #mainNavBar .nav-link{
-    color: white;
-} */
-
 #mainNavBar .nav-link:hover{
     color: #202020;
 }
 
-#banner{
-    height: 100vh;
+#links i{
+    font-size: 2rem;
+    padding: 10px;
+    color: white;
+}
+
+#ext{
+    color: white;
+    font-size: 0.75em;
+}
+
+#content{
+    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,8 +28,6 @@ body{
 
 h1{
     display: none;
-    /* font-family: 'Gloria Hallelujah', cursive; */
-    /* font-family: 'Times New Roman', Times, serif; */
     font-family: 'FreeMono', monospace;
     font-size: 4rem;
 }

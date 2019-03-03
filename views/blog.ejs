@@ -7,7 +7,9 @@
 
 <div id="content" class="container">
     
-    <section id="blog-posts" class="py-5">
+    <h1><span>•</span> Blog <span>•</span></h1>
+    <hr class="pb-3">
+    <section id="blog-posts" class="py-3">
     <% if (posts.length === 0 ){ %>
         <h2 id="sorry-msg">Sorry, no Blog Posts have been published yet.</h2>
     <% }else{ %>
@@ -42,7 +44,5 @@
         }                
     %>
 </div>
-
-<div class="pb-5"></div>
 
 <% include ./partials/footer %>

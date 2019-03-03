@@ -3,7 +3,6 @@
     align-items: center;
 }
 
-
 #main-text{
     height: 100%;
 }
@@ -33,6 +32,7 @@
 
 #content{
     margin-top: 6vh;
+    padding-top: 20px;
 }
 
 .scrolled-nav{
