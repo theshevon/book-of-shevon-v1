@@ -1,11 +1,12 @@
 body{
     color: white;
+    color: black;
     text-align: center;
 }
 
-#mainNavBar .nav-link{
+/* #mainNavBar .nav-link{
     color: white;
-}
+} */
 
 #mainNavBar .nav-link:hover{
     color: #202020;
@@ -20,8 +21,14 @@ body{
 
 h1{
     display: none;
-    font-family: 'Gloria Hallelujah', cursive;
+    /* font-family: 'Gloria Hallelujah', cursive; */
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family: 'FreeMono', monospace;
     font-size: 4rem;
 }
 
-
+@media(max-width:575px){
+    h1{
+        font-size: 3rem;
+    }
+}

@@ -11,7 +11,6 @@
 #mainNavBar .nav-link{
     font-size: 1.0rem;
     font-weight: 100;
-    color: white;
 }
 
 #mainNavBar .navbar-brand img{
@@ -29,6 +28,7 @@
 
 #mainNavBar{
     transition: 500ms;
+    background: white !important;
 }
 
 #content{
@@ -43,8 +43,6 @@
 
 #mainNavBar .nav-link{
     color: #757575;
-    
-    text-transform: uppercase;
     font-weight: lighter;
 }
 
@@ -56,13 +54,21 @@
     border: none;
 }
 
-#toggler:hover .navbar-toggler-icon{
-    color: white;
-}
-
 #toggler:focus{
     border: 1px solid gray;
     outline: none;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+@media(max-width:575px){
+
+    #navLinks{
+        text-align: center;
+        color: #757575; 
+    }
 }
 
 

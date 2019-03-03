@@ -13,7 +13,7 @@
     <% }else{ %>
         <% posts.forEach(function(post){ %>
             <div class="row justify-content-center mb-5">
-                <div class="blog-post col-8 py-4 d-flex flex-column align-items-center">
+                <div class="blog-post col-12 col-sm-8 py-4 d-flex flex-column align-items-center">
                     <h3><%=post.title%></h3>
                     <% if (post.content.indexOf("<figure>") !== -1 ){ %>
                     <img src="<%= getImgSrc(post.content) %>" class="img-fluid" alt="">
