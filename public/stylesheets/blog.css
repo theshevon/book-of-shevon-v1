@@ -1,24 +1,17 @@
-h1, .blog-post{
+.date-time p{
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.date-time p:nth-child(2){
+	margin-left: 70px;
+}
+
+.blog-post, p{
     font-family: 'Times New Roman', Times, serif;
 }
 
-#content{
-    border: 1px solid rgb(230, 229, 229);
-}
-
-h1{
-	text-align: center;
-	font-weight: bolder;
-}
-
-h1 span{
-	font-size: 0.75em;
-}
-
 .blog-post{
-	border: 1px solid rgb(230, 229, 229);
-	border-radius: 8px;
-	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.01), 0 6px 20px 0 rgba(0, 0, 0, 0.01); */
 	transition: 300ms;
 }
 
@@ -27,11 +20,40 @@ h1 span{
 }
 
 .blog-post p a{
-	color: #757575;
+	font-weight: bolder;
+	color: black;
 }
 
 .blog-post img{
 	height: 20vh;
 	width: 80%;
 	object-fit: cover;
+}
+
+.blog-post p{
+	font-style: italic;
+	width: 80%;
+	text-align: justify;
+}
+
+.thicc-line{
+	height: 2px;
+	background-color: black;
+}
+
+.thin-line{
+	height: 1px;
+	background-color: gray;
+}
+
+h1{
+	color: white;
+	background: black;
+	font-size: 3.5rem;
+	text-align: center;
+	font-family: 'UnifrakturCook', cursive;
+}
+
+h1 span{
+	font-size: 0.75em;
 }

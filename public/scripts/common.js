@@ -1,3 +1,9 @@
+// fade in page
+window.onload = function(){
+    $('#content').fadeIn(1500);
+};
+
+// navbar shadow effect
 $(function(){
     $(document).scroll(function(){
         var $nav = $("#mainNavBar");
@@ -12,3 +18,4 @@ $(function(){
         $toggler.toggleClass("scrolled-toggler", $(this).scrollTop() > ($header.height() - $nav.height()*1.3));
     });
 });
+

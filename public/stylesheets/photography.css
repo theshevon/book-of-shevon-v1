@@ -1,26 +1,28 @@
-.photo img{
-    height: 40vh;
-    object-fit: cover;
-    max-width: 665px;
+h1{
+    text-align: center;
+    font-family: "bookman old style", "bookman old";
+}
+
+.photos{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photos::after{
+    content: '';
+    flex-grow: 999999999;
 }
 
 .photo{
-    float: left;
-    padding: 2.5px;
-    flex-grow: 1 !important;
+    flex-grow: 1;
+    margin: 2px;
+    height: 200px;
 }
 
-#content{
-    padding-left: 7.5px;
-    padding-right: 7.5px;
-    font-family: "bookman old style", "bookman old";
-    text-align: center;
-}
-
-@media(max-width:576px){
-    .photo{
-        float: none;
-        width: 100%;
-        background-color: gray;
-    }
+.photo img{
+    height: 200px;
+    object-fit: cover;
+    max-width: 100%;
+    min-width: 100%;
+    vertical-align: bottom;
 }

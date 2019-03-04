@@ -37,11 +37,13 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/blog", function(req, res){
 
+    var date = new Date();
+
     // rss url of blog
     var feedURL = "https://medium.com/feed/@shevon_mendis";
     
     feedReader.parse(feedURL).then((feed) => {
-        res.render("blog", {posts: feed.entries});
+        res.render("blog", {posts: feed.entries, date: date});
     }).catch((err) => {
         console.log(err);
         res.redirect("/home");
