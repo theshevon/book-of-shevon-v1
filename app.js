@@ -2,7 +2,6 @@
 
 var express               = require("express"),
     feedReader            = require("feed-reader"),
-    countFiles            = require("count-files"),
     app                   = express();
     
 
@@ -48,6 +47,10 @@ app.get("/blog", function(req, res){
         res.redirect("/home");
     });
 
+});
+
+app.get("/photography", function(req, res){
+    res.render("photography");
 });
 
 app.get("/art", function(req, res){

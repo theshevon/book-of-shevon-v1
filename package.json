@@ -17,10 +17,8 @@
   },
   "homepage": "https://github.com/theshevon/Personal_Site#readme",
   "dependencies": {
-    "count-files": "^2.6.2",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "feed-reader": "^1.1.6",
-    "rss-parser": "^3.6.3"
+    "feed-reader": "^1.1.6"
   }
 }

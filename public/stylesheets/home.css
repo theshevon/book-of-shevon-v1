@@ -8,10 +8,22 @@ body{
     color: #202020;
 }
 
+#banner{
+    display: none;
+}
+
+#links{
+    display: none;
+}
+
 #links i{
     font-size: 2rem;
     padding: 10px;
-    color: white;
+    color: #202020;
+}
+
+#links a:hover{
+    text-decoration: none;
 }
 
 #ext{
@@ -27,7 +39,6 @@ body{
 }
 
 h1{
-    display: none;
     font-family: 'FreeMono', monospace;
     font-size: 4rem;
 }

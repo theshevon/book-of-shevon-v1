@@ -1,0 +1,26 @@
+.photo img{
+    height: 40vh;
+    object-fit: cover;
+    max-width: 665px;
+}
+
+.photo{
+    float: left;
+    padding: 2.5px;
+    flex-grow: 1 !important;
+}
+
+#content{
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    font-family: "bookman old style", "bookman old";
+    text-align: center;
+}
+
+@media(max-width:576px){
+    .photo{
+        float: none;
+        width: 100%;
+        background-color: gray;
+    }
+}

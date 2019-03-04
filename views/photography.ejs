@@ -1,0 +1,24 @@
+<% include ./partials/header %>
+
+<title>umisc | blog</title>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/photography.css">
+
+<div id="content">
+
+    <section id="Photography" class="pt-5 pb-5">
+        <h1 class="pb-3">Photography</h1>
+        <!-- <hr class="pb-3"> -->
+
+        <% for (var i=0; i<30; i++){ %>
+            <div class="photo">
+                <img src="/photography/<%=i%>.jpg" alt="">
+            </div>
+        <% } %>
+
+    </section>
+
+</div>
+
+<% include ./partials/footer %>
