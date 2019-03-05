@@ -1,0 +1,26 @@
+/* #content{
+    font-family: 'Poppins', sans-serif;
+}
+
+.location{
+    line-height: 0.1rem;
+    color: rgb(163, 163, 163);
+    font-weight: 100;
+}
+
+.title{
+    text-align: center;
+} */
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30vh;
+}
+
+i{
+    font-size: 30px;
+    padding-bottom: 5px;
+}

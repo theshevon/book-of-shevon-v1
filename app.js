@@ -2,6 +2,7 @@
 
 var express               = require("express"),
     feedReader            = require("feed-reader"),
+    request               = require("request"),
     app                   = express();
     
 
@@ -51,12 +52,40 @@ app.get("/blog", function(req, res){
 
 });
 
+app.get("/about", function(req, res){
+    res.render("about");
+});
+
 app.get("/photography", function(req, res){
     res.render("photography");
 });
 
 app.get("/art", function(req, res){
     res.render("art");
+});
+
+app.get("/music", function(req, res){
+    res.render("music");
+});
+
+app.get("/code", function(req, res){
+   
+    var options = {
+        url: 'https://api.github.com/users/theshevon/repos?type=all',
+        headers: {
+          'User-Agent': 'theshevon'
+        }
+    };
+
+    request(options, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+            var repos = JSON.parse(body).slice();
+            repos.sort((repo1, repo2) => new Date(repo2.created_at) - new Date(repo1.created_at));
+            res.render("code", {repos:repos});
+        }else{
+            res.redirect("/");
+        }
+    });
 });
 
 app.get("/*", function(req, res){

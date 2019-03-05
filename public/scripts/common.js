@@ -1,7 +1,7 @@
 // fade in page
-window.onload = function(){
-    $('#content').fadeIn(1500);
-};
+// window.onload = function(){
+//     $('#content').fadeIn(1500);
+// };
 
 // navbar shadow effect
 $(function(){

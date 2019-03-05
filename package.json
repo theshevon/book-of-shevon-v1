@@ -19,6 +19,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "feed-reader": "^1.1.6"
+    "feed-reader": "^1.1.6",
+    "request": "^2.88.0"
   }
 }
