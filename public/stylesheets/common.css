@@ -59,6 +59,49 @@
     outline: none;
 }
 
+#flash{
+    margin-top: 5vh;
+    position: relative;
+}
+
+.alert{
+    background-color: white;
+    text-align: center !important;
+    border-radius: 16px;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    z-index: 1;
+    top: 30px;
+    font-family: 'FreeMono', monospace;
+}
+  
+.alert-danger{
+    border-color: red;
+    color: red;
+}
+
+.alert-success{
+    color: rgb(59, 189, 33);
+    border-color:  rgb(59, 189, 33);
+} 
+
+.btn{
+    border-radius: 16px;
+}
+
+.btn-outline-success {
+    color: rgb(59, 189, 33) !important;
+    border-color: rgb(59, 189, 33) !important;
+}
+
+.btn-outline-success:hover{
+    color: white !important;
+    background: rgb(59, 189, 33) !important;
+}
+
 ::-webkit-scrollbar { 
     display: none; 
 }

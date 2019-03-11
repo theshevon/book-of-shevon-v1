@@ -1,0 +1,22 @@
+#file{
+  padding: 0;
+}
+
+.main{
+  width:60%;
+}
+
+.row{
+  justify-content: center;
+}
+
+input, textarea{
+  border-radius: 16px !important;
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+  

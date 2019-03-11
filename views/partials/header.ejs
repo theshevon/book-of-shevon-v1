@@ -52,7 +52,7 @@
               <a href="/photography" class="nav-link">photo</a>
             </li>
             <li class="nav-item">
-              <a href="/code" class="nav-link">code</a>
+              <a href="/repos" class="nav-link">code</a>
             </li>
             <li class="nav-item">
               <a href="/blog" class="nav-link">blog</a>
@@ -60,10 +60,25 @@
             <div class="nav-item">
               <a href="/music" class="nav-link">music</a>
             </div>
+            <% if (currentUser){ %>
+            <div class="nav-item">
+              <a href="/zARnzmf7aENNHGuTBUPTout" class="nav-link">logout</a>
+            </div>
+            <% } %>
           </ul>
         </div>
       </div>
     </nav>
+
+    <!-- flash message containers -->
+    <div id="flash" class="container">
+      <% if (error && error.length > 0){ %>
+        <div class="alert alert-danger" role="alert"><%=error%></div>
+      <% } %>
+      <% if (success && success.length > 0){ %>
+        <div class="alert alert-success" role="success"><%=success%></div>
+      <% } %>
+    </div>
 
   
   

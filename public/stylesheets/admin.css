@@ -1,0 +1,20 @@
+#form{
+	height: 87.5vh;
+}
+
+.btn, input{
+	border-radius: 16px !important;
+}
+
+h2{
+  letter-spacing: 0.5rem;
+  font-weight: 200;
+}
+
+input{
+	text-align: center;
+}
+
+#form{
+    font-family: 'FreeMono', monospace;
+}

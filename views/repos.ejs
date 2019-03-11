@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/stylesheets/repos.css">
+
+<div id="content" class="container">
+    
+    <div class="row flex-wrap mt-5 justify-content-center">
+        <% repos.forEach(function(repo){ %>
+            <div class="repo col-12 col-md-4 py-4">
+                <h4><%= repo.name %></h4>
+                <img src="/<%= repo.name %>.png" alt="" clas="img-fluid">
+                <p><%= repo.desc %></p>
+                <div class="btns d-flex justify-content-around">
+                    <% if (currentUser){ %>
+                    <a href="/repos/<%= repo._id %>/edit">
+                        <div class="btn btn-outline-warning">edit repo</div>
+                    </a>
+                    <% } %>
+                    <a href="<%= repo.gitLink %>" target="_blank">
+                        <div class="btn repo-btn btn-outline-success">view repo</div>
+                    </a>
+                    <% if (currentUser){ %>
+                    <form class="d-inline" action="/repos/<%=repo._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-outline-danger">del repo</button>
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <% if (currentUser) { %>
+    <div class="mt-5 d-flex justify-content-center">
+        <a href="/repos/new">
+            <div class="btn btn-outline-success">add repo block</div>
+        </a>
+    </div>
+    <% } %>
+
+</div>
+
+<% include ./partials/footer %>

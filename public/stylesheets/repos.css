@@ -1,0 +1,50 @@
+.repo{
+    text-align: center;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 750ms;
+    border-radius: 4px;
+}
+
+.repo p{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.repo:hover{
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.repo img{
+    height: 20vh;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* a{
+    width: 30%;
+    height: 10%;
+} */
+
+a:hover{
+    text-decoration: none;
+}
+
+.btns{
+    width: 90%;
+}
+
+.btn-outline-warning:hover{
+    color: white;
+}
+
+.repo-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

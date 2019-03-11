@@ -1,96 +1,68 @@
 /*=========================package/schema imports=============================*/
 
-var express               = require("express"),
-    feedReader            = require("feed-reader"),
-    request               = require("request"),
-    app                   = express();
-    
+var methodOverride = require("method-override"),
+    localStrategy  = require("passport-local"),
+    flash          = require("connect-flash"),
+    bodyParser     = require("body-parser"),
+    passport       = require("passport"),
+    mongoose       = require("mongoose"),
+    express        = require("express"),
+    helmet         = require("helmet"),
+    app            = express();
+
+var User  = require("./models/user");
+
+var adminRoutes  = require("./routes/admin"),
+    indexRoutes  = require("./routes/index"),
+    repoRoutes   = require("./routes/repos"); 
 
 /*==================================app config================================*/
 
-// connect to umisc database
-// mongoose.connect("mongodb://127.0.0.1:27017/my_site", 
-//                  {useNewUrlParser: true}, 
-//                  function(err, db) {
-//                     if (err) {
-//                         console.log('Unable to connect to the database.\n', err);
-//                     } else {
-//                         console.log('Successfully connected to database.');
-//                     }
-//                 });
+// connect to database
+mongoose.connect("mongodb://yoloswag69:is this the real lyf 69@ds261917.mlab.com:61917/portfolio", 
+                 {useNewUrlParser: true}, 
+                 function(err, db) {
+                    if (err) {
+                        console.log('Unable to connect to the database.\n', err);
+                    } else {
+                        console.log('Successfully connected to database.');
+                    }
+                });
 
+app.use(flash());   // needs to be BEFORE passport config
+app.use(helmet());
+
+app.use(require("express-session")({
+    secret: "I am Beyonce, always",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // move user data and flash errors to all views
-// app.use(function(req, res, next){
-//   res.locals.currentUser = req.user;
-//   res.locals.error = req.flash("error");
-//   res.locals.success = req.flash("success");
-//   next();
-// });
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(methodOverride("_method"));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 /*====================================routing==================================*/
 
-
-app.get("/blog", function(req, res){
-
-    var date = new Date();
-
-    // rss url of blog
-    var feedURL = "https://medium.com/feed/@shevon_mendis";
-    
-    feedReader.parse(feedURL).then((feed) => {
-        res.render("blog", {posts: feed.entries, date: date});
-    }).catch((err) => {
-        console.log(err);
-        res.redirect("/home");
-    });
-
-});
-
-app.get("/about", function(req, res){
-    res.render("about");
-});
-
-app.get("/photography", function(req, res){
-    res.render("photography");
-});
-
-app.get("/art", function(req, res){
-    res.render("art");
-});
-
-app.get("/music", function(req, res){
-    res.render("music");
-});
-
-app.get("/code", function(req, res){
-   
-    var options = {
-        url: 'https://api.github.com/users/theshevon/repos?type=all',
-        headers: {
-          'User-Agent': 'theshevon'
-        }
-    };
-
-    request(options, function(error, response, body){
-        if (!error && response.statusCode == 200) {
-            var repos = JSON.parse(body).slice();
-            repos.sort((repo1, repo2) => new Date(repo2.created_at) - new Date(repo1.created_at));
-            res.render("code", {repos:repos});
-        }else{
-            res.redirect("/");
-        }
-    });
-});
-
-app.get("/*", function(req, res){
-    res.render("home");
-});
+app.use(adminRoutes);
+app.use(repoRoutes);
+app.use(indexRoutes);
 
 // local deployment
 app.listen(3000, function(){
