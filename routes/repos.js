@@ -5,12 +5,17 @@ var Repo    = require("../models/repo"),
 
 var router = express.Router();
 
+// global var to store filename
+var filename = "";
+const file_path = './public/repo_covers'
+
 /*================================multer config===============================*/
 
 // set storage engine
 const storage = multer.diskStorage({
-    destination: './public/repo_covers',
+    destination: file_path,
     filename: function(req, file, cb){
+        filename = file.originalname;
         cb(null, file.originalname);
     }
 });
@@ -74,27 +79,15 @@ router.get("/repos/:id/edit", isLoggedIn, function(req, res){
 });
 
 // create a repo block
-router.post("/repos", isLoggedIn, function(req, res){
+router.post("/repos", isLoggedIn, upload, function(req, res){
 
-    // upload(req, res, function(err){
-    //     if (err){
-    //         req.flash("error", "Sorry, your request couldn't be completed at this \
-    //                                                                     time.")
-    //         res.render("repos", {msg: err});
-    //     } 
-        
-    //     // else{
-    //     //     if (req.file == undefined){
-    //     //         res.render("repos", {msg: "Error: No File Selected!"});
-    //     //     }else{
-    //     //         res.render("index", {
-    //     //             msg: "File Uploaded!",
-    //     //             file: `uploads/${req.file.filename}`
-    //     //         })
-    //     //     }
-    //     //     console.log(req.file);
-    //     // }
-    // });
+    // link repo to cover image
+    if (filename !== ""){   // new upload occurred
+        req.body.repo.img_name = filename;
+
+        // reset filename
+        filename = "";
+    }
 
     Repo.create(req.body.repo, function(err, repo){
       if (err){
@@ -111,6 +104,16 @@ router.post("/repos", isLoggedIn, function(req, res){
 // update a repo
 router.put("/repos/:id", isLoggedIn, function(req, res){
 
+    // update cover linkage if necessary
+    if (filename !== ""){
+        req.body.repo.img_name = filename;
+
+         // reset filename
+         filename = "";
+
+        //  DELETE LAST IMAGE IF IT WASNT STUB
+    }
+
     // find repo by its ID and update it
     Repo.findByIdAndUpdate(req.params.id, req.body.repo, function(err, repo){
         if (err){
@@ -126,6 +129,8 @@ router.put("/repos/:id", isLoggedIn, function(req, res){
 
 // delete a specific repo
 router.delete("/repos/:id", isLoggedIn, function(req, res){
+
+    // DELETE IMAGES IF THEY WERENT STUB
 
     // find repo by its ID and delete it
     Repo.findByIdAndDelete(req.params.id, function(err){
@@ -150,7 +155,7 @@ function isLoggedIn(req, res, next){
       return next();
     }
     req.flash("error", "Please Login First!");
-    res.redirect("/zARnzmf7aENNHGuTBUPT");
+    res.redirect("/admin");
 }
   
 module.exports = router;

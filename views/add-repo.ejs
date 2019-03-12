@@ -9,19 +9,22 @@
 
     <h2 class="d-flex mb-5 justify-content-center">Create New Repo Block</h2>
 
-    <form action="/repos" method="POST">
+    <form action="/repos" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group row">
+          <div class="col-12 col-sm-6">
+              <div class="custom-file">
+                  <input id="img" type="file" class="custom-file-input file-upload" name="repo_img" accept="image/*" required>
+                  <label for="img" class="custom-file-label file-upload">repo cover</label>
+              </div>
+          </div>
+        </div>
 
         <div class="form-group row">
           <div class="col-12 col-sm-8">
             <input id="name" type="text" class="form-control" name="repo[name]" placeholder="name" required>
           </div>
         </div>
-
-        <!-- <div class="form-group row">
-            <div class="col-12 col-sm-8">
-              <input type="file" accept="image/*" required>
-            </div>
-        </div> -->
 
         <div class="form-group row">
           <div class="col-12 col-sm-8">

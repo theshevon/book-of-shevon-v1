@@ -19,7 +19,8 @@ var adminRoutes  = require("./routes/admin"),
 /*==================================app config================================*/
 
 // connect to database
-mongoose.connect("mongodb://yoloswag69:is this the real lyf 69@ds261917.mlab.com:61917/portfolio", 
+// mongoose.connect("mongodb://yoloswag69:is this the real lyf 69@ds261917.mlab.com:61917/portfolio",
+mongoose.connect("mongodb://127.0.0.1:27017/portfolio", 
                  {useNewUrlParser: true}, 
                  function(err, db) {
                     if (err) {
@@ -58,7 +59,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-/*====================================routing==================================*/
+/*===================================routing==================================*/
 
 app.use(adminRoutes);
 app.use(repoRoutes);

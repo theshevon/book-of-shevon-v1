@@ -12,11 +12,21 @@
 
 input, textarea{
   border-radius: 16px !important;
-  text-align: center;
+  text-align: center !important;
 }
 
 h2{
   text-align: center;
 }
 
+.file-upload {
+  border-radius: 16px;
+  text-align: center;
+  color: #6c757d;
+}
+
+.custom-file-label::after{
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
   

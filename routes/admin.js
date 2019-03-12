@@ -5,13 +5,13 @@ var User     = require("../models/user"),
 var router = express.Router();
 
 // USER LOGIN PAGE 
-router.get("/zARnzmf7aENNHGuTBUPT", function(req, res){
+router.get("/admin", function(req, res){
   res.render("admin");
 });
 
 // LOGIN USER
-router.post("/zARnzmf7aENNHGuTBUPT", passport.authenticate("local", {
-    failureRedirect: "/zARnzmf7aENNHGuTBUPT",
+router.post("/admin", passport.authenticate("local", {
+    failureRedirect: "/admin",
     failureFlash: "Invalid username or password"
 }), function(req, res){
 
@@ -20,7 +20,7 @@ router.post("/zARnzmf7aENNHGuTBUPT", passport.authenticate("local", {
         if (err || !user){
             // redirect to login page
             req.flash("error", "Oops, something went wrong!");
-            res.redirect("/zARnzmf7aENNHGuTBUPT");
+            res.redirect("/admin");
         }
     });
 
@@ -31,7 +31,7 @@ router.post("/zARnzmf7aENNHGuTBUPT", passport.authenticate("local", {
 
 
 // USER LOGOUT
-router.get("/zARnzmf7aENNHGuTBUPTout", isLoggedIn, function(req, res){
+router.get("/logout", isLoggedIn, function(req, res){
     
     // logout user and redirect to home page
     req.logout();
@@ -40,12 +40,12 @@ router.get("/zARnzmf7aENNHGuTBUPTout", isLoggedIn, function(req, res){
 });
 
 // NEW USER REGISTRATION PAGE
-router.get("/zARnzmf7aENNHGuTBUPTreg", function(req, res){
+router.get("/register", function(req, res){
     res.render("register");
 });
 
 // REGISTER NEW USER
-router.post("/zARnzmf7aENNHGuTBUPTreg", function(req, res){
+router.post("/register", function(req, res){
 
     // verify username 
     User.register(new User({username: req.body.username}), req.body.password, 
@@ -54,13 +54,13 @@ router.post("/zARnzmf7aENNHGuTBUPTreg", function(req, res){
         if (err){
             console.log(err);
             req.flash("error", "Username already in use!");
-            res.redirect('/zARnzmf7aENNHGuTBUPTreg');
+            res.redirect('/register');
         }
 
         // logs user in and runs 'serialize' method
         passport.authenticate("local")(req, res, function(){
             req.flash("success", "Successfully Logged In!");
-            res.redirect("/home");
+            res.redirect("/code");
         });
     })
 });
@@ -73,7 +73,7 @@ function isLoggedIn(req, res, next){
       return next();
     }
     req.flash("error", "Please Login First!");
-    res.redirect("/zARnzmf7aENNHGuTBUPT");
+    res.redirect("/admin");
 }
 
 module.exports = router;
