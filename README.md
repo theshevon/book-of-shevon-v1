@@ -4,17 +4,17 @@ Implementation of my personal website with the purpose of acting as an extension
 
 ### Tech Stack
 
-• NodeJS
-• Express
-• MongoDB
-• Bootstrap 
+* NodeJS
+* Express
+* MongoDB
+* Bootstrap 
 
 ### Features
 
-• Simplistic UI with a different style for each web page. 
-• There is also an admin portal so that I could dynamically add the repositories that I want, along with an image, to the 'code' page.
+* Simplistic UI with a different style for each web page. 
+* There is also an admin portal so that I could dynamically add the repositories that I want, along with an image, to the **code** page.
 
-### Build Status
+### Build Status - *Incomplete* 
 
-Incomplete- some features, such as the image upload, were hacked together and so need refactoring. Furthermore, information on the static
-parts of the website need to be added/ updated.
+Certain features, such as image upload, were hacked together and so need refactoring. 
+Furthermore, information on the static pages of the website need to be added/ updated.
