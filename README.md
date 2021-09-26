@@ -1,17 +1,7 @@
 # book-of-shevon-v1
 
-Implementation of my personal website with the purpose of acting as an extension to my resume.
+**Version:** 1.0
 
-### Tech Stack
+**Description:** A portfolio of sorts. I used this website to practice new front end skills and then showcase my creative side. This website was deprecated as of early 2020- you can find Version 2.0 [here](https://github.com/theshevon/book-of-shevon-v2)
 
-* NodeJS
-* Express
-* MongoDB
-* Bootstrap 
-
-### Features
-
-* Simplistic UI with a different style for each web page. 
-* There is also an admin portal so that I could dynamically add the repositories that I want (along with an image) to the **code** page.
-
-### Build Status - *Complete* 
+**Tech Stack:** Node.js, Express, MongoDB, Bootstrap
